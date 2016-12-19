@@ -20,8 +20,10 @@ class Application extends Controller {
 
   def login = Action { implicit request =>
     val (username, password) = loginForm.bindFromRequest.get
-    if (username == "lrh" && password == "111")
-      Ok(Json.toJson("Token"))
+    if (username == "lrh" && password == "111") {
+      val token = "1234567890"
+      Ok(Json.toJson(token))
+    }
     else
       BadRequest
   }
